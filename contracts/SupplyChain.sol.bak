@@ -97,7 +97,7 @@ contract SupplyChain {
 
 	function buyItem(uint _sku) public payable forSaleModifier(_sku) paidEnoughModifier(items[_sku].price) refundOverageModifier(_sku) {
 		items[_sku].seller.transfer(items[_sku].price); // transfer payment to seller.
-		items[_sku].buyer = msg.sender; // items[_sku].buyer = payable(msg.sender);
+		items[_sku].buyer = payable(msg.sender);
 		items[_sku].state = State.Sold;
 		emit LogSold(_sku);
 	}
