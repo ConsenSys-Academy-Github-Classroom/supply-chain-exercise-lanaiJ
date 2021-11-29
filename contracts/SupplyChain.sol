@@ -23,7 +23,7 @@ contract SupplyChain {
 
 
 	/* Constructor is special function which runs once during contract deployment. */
-	constructor() {
+	constructor() public { // add "public" to pass github actions tests. due to compiler change.
 		owner = msg.sender;
 		skuCount = 0;
 	}
